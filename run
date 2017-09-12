@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "$1" = "test"  ]; then
+  if [ ! -z $2 ] || [ ! -z $3 ]; then
+    docker-compose run --rm php phpunit /code/$2/test/$3
+  fi
+elif [ -f ./src/$1/main.php ]; then
+    docker-compose run --rm php php /code/$1/main.php
+elif [ "$1" = "-h" ]; then
+  echo "$0 test [proyecto] [nombre_test]"
+  echo "$0 [proyecto]"
+fi
