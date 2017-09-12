@@ -6,7 +6,7 @@ if [ "$1" = "test"  ]; then
   fi
 elif [ -f ./src/$1/main.php ]; then
     docker-compose run --rm php php /code/$1/main.php
-elif [ "$1" = "-h" ]; then
+else
   echo "$0 test [proyecto] [nombre_test]"
   echo "$0 [proyecto]"
 fi
